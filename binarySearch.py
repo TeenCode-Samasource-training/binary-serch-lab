@@ -4,11 +4,14 @@ class BinarySearch(object):
 		self.list_size = list_size
 
 		# Creating our list that we are going to search through
-		if self.list_size in range(1, 21):
+		# Credits to JamesDindi
+		# This block check number_list is within our scope
+		# i.e, toTwenty is [1, 2, 3 . . . 20]
+		if self.list_size in self.toTwenty():
 			self.number_list = self.toTwenty()
-		elif self.list_size in range(2, 41, 2):
+		elif self.list_size in self.toForty():
 			self.number_list = self.toForty()
-		elif self.list_size in range(10, 1001, 10):
+		elif self.list_size in self.toOneThousand():
 			self.number_list = self.toOneThousand()
 
 		# creating a variable to get length of our list
@@ -17,21 +20,22 @@ class BinarySearch(object):
 	# we need this to pass ListComprehensionTest
 	# look at this as a getter method.
 	def __getitem__(self, index):
-		return self.number_list[index]
+		return self.number_list[index] # equivalent to one_to_twenty[19]
 
 	# methods to return list to search through
 	def toTwenty(self):
-		return list(range(1,21))
+		return list(range(1,21)) # returns [1, 2, 3 . . . 20]
 
 	def toForty(self):
-		return list(range(2,41))[::2]
+		return list(range(2,41))[::2] # returns [2, 4, 6 . . . 40]
 
 	def toOneThousand(self):
-		return list(range(10,1001))[::10]
+		return list(range(10,1001))[::10] # returns [10, 20, 30 . . . 1000]
 
 	# where the magic happens
 	# binary search by iterative method
-	# our test expects search a dictionary
+	# our test expects search to return a dictionary
+	# this a standard method to do a binary search
 	def search(self, number):
 		firstIndex = 0
 		lastIndex = len(self.number_list) - 1

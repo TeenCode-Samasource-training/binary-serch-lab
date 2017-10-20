@@ -8,7 +8,7 @@ class ListComprehensionTest(unittest.TestCase):
 
     def setUp(self):
         self.one_to_twenty = BinarySearch(20, 1)
-        self.two_to_forty = BinarySearch(20, 2)
+        self.two_to_forty = BinarySearch(40, 2)
         self.ten_to_thousand = BinarySearch(100, 10)
 
     def test_small_list(self):
